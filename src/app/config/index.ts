@@ -7,5 +7,6 @@ dotenv.config(configPath);
 
 export const config = {
     port: process.env.PORT,
-    db_url: process.env.DB_URL
+    db_url: process.env.DB_URL,
+    jwt_key: process.env.JWT,
 }
