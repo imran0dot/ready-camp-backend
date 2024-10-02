@@ -15,6 +15,9 @@ app.use(cookieParser());
 
 app.use('/api', router)
 
+app.get("/", (req, res) => {
+    res.send('working your server')
+})
 
 
 class HttpError extends Error {

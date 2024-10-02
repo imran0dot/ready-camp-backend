@@ -3,7 +3,11 @@ import userModal from "./user.modal";
 import bcrypt from "bcrypt";
 
 const createUserIntoDb = async (userData: TUser) => {
-    const user = await userModal.create(userData);
+    const setUserType = {
+        ...userData,
+        userType: "Customer"
+    }
+    const user = await userModal.create(setUserType);
     return user;
 }
 

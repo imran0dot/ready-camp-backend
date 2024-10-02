@@ -3,7 +3,8 @@ import { config } from '../config';
 
 const createToken = (userDetails: {
     id: Object,
-    email: string
+    email: string,
+    userType: string
 }) => {
     try {
         const token = jwt.sign(userDetails, config.jwt_key as string);

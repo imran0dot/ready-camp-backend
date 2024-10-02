@@ -7,8 +7,7 @@ import createToken from "../../utils/createToken";
 const createUser = catchAsync(async (req, res) => {
     const userData = req.body;
     const result = await userServices.createUserIntoDb(userData);
-    const token = createToken({ id: result._id, email: result.email })
-    console.log(result, token);
+    const token = createToken({ id: result._id, email: result.email, userType: result.userType });
     sendResponse(res, {
         data: result,
         isSuccess: true,
@@ -39,7 +38,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     }
 
     // Create a token
-    const token = createToken({ id: result._id, email: result.email });
+    const token = createToken({ id: result._id, email: result.email, userType: result.userType });
 
     // Set the token in the cookies
     res.cookie('token', token);
