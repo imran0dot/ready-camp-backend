@@ -5,18 +5,24 @@ interface ResponsePayload {
     status: number;
     err?: string;
     isSuccess: boolean;
+    token?: string;
+    message?: string
 }
 
 const sendResponse = (res: Response, {
     data,
     status,
     err,
-    isSuccess
+    isSuccess,
+    token,
+    message
 }: ResponsePayload) => {
     res.status(status).json({
         isSuccess,
         err,
-        data
+        data,
+        token,
+        message
     });
 };
 

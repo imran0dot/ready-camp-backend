@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import { config } from '../config';
 
 const createToken = (userDetails: {
-    id: string,
+    id: Object,
     email: string
 }) => {
     try {
