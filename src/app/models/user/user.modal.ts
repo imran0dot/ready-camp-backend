@@ -59,5 +59,5 @@ userSchema.post('save', function (doc, next) {
 
 
 
-const userModal = mongoose.model<TUser>('user', userSchema);
+const userModal = mongoose.model<TUser>('User', userSchema);
 export default userModal;
