@@ -14,7 +14,7 @@ export const findAllProductFromDb = async () => {
 }
 
 
-export const findSingleProduct = async (id: Types.ObjectId) => {
-    const result = await Product.findById(id);
+export const findSingleProductFromDb = async (slug: string) => {
+    const result = await Product.findOne({ slug: slug });
     return result;
 }

@@ -12,7 +12,7 @@ const productSchema: Schema = new Schema<IProductDocument>({
   slug: {
     type: String,
     required: true,
-    unique: true,
+    // unique: true,
   },
   category: {
     type: String,
@@ -42,7 +42,7 @@ const productSchema: Schema = new Schema<IProductDocument>({
   sku: {
     type: String,
     required: true,
-    unique: true,
+    // unique: true,
   },
   dimensions: {
     width: {
