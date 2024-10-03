@@ -34,7 +34,6 @@ app.use((err: Error | HttpError, req: Request, res: Response, next: NextFunction
     const statusCode = err instanceof HttpError ? err.statusCode : 500;
 
     if (err) {
-        console.log(err);
         sendResponse(res, {
             isSuccess: false,
             status: statusCode,

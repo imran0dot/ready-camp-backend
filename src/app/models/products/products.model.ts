@@ -2,12 +2,17 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import IProduct from './product.interface';
 
-interface IProductDocument extends IProduct, Document {}
+interface IProductDocument extends IProduct, Document { }
 
-const productSchema: Schema = new Schema({
+const productSchema: Schema = new Schema<IProductDocument>({
   title: {
     type: String,
     required: true,
+  },
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
   },
   category: {
     type: String,
@@ -24,7 +29,7 @@ const productSchema: Schema = new Schema({
   stock: {
     type: Number,
     required: true,
-    min: 0, 
+    min: 0,
   },
   tags: {
     type: [String],
@@ -37,7 +42,7 @@ const productSchema: Schema = new Schema({
   sku: {
     type: String,
     required: true,
-    unique: true, 
+    unique: true,
   },
   dimensions: {
     width: {
@@ -58,7 +63,7 @@ const productSchema: Schema = new Schema({
     default: [],
   },
 }, {
-  timestamps: true,  
+  timestamps: true,
 });
 
 const Product = mongoose.model<IProductDocument>('Product', productSchema);
